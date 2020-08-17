@@ -1,11 +1,8 @@
 -- Disable Emergency
 Citizen.CreateThread(function()
-	while true do
-		Wait(0)
-		for i = 1, 12 do
-			EnableDispatchService(i, false)
-		end
-	end
+    for i = 1, 12 do
+        Citizen.InvokeNative(0xDC0F817884CDD856, i, false)
+    end
 end)
 
 -- Disable Weapon Drops
@@ -45,6 +42,39 @@ Citizen.CreateThread(function()
                 ClearPedTasks(PlayerPedId())
             end
         end
+    end
+end)
+
+-- Crouch
+local crouched = false
+
+Citizen.CreateThread(function()
+    while true do 
+        Citizen.Wait(1)
+
+        local ped = PlayerPedId()
+
+        if (DoesEntityExist(ped) and not IsEntityDead(ped)) then 
+            DisableControlAction(0, 36, true)  
+
+            if (not IsPauseMenuActive()) then 
+                if (IsDisabledControlJustPressed(0, 36)) then 
+                    RequestAnimSet('move_ped_crouched')
+
+                    while (not HasAnimSetLoaded('move_ped_crouched')) do 
+                        Citizen.Wait(100)
+                    end 
+
+                    if (crouched == true) then 
+                        ResetPedMovementClipset(ped, 0)
+                        crouched = false 
+                    elseif (crouched == false) then
+                        SetPedMovementClipset(ped, 'move_ped_crouched', 0.25)
+                        crouched = true 
+                    end 
+                end
+            end 
+        end 
     end
 end)
 
