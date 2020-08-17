@@ -19,7 +19,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(1)
-		DisablePlayerVehicleRewards(PlayerId())	
+		DisablePlayerVehicleRewards(PlayerPedId())	
 	end
 end)
 
