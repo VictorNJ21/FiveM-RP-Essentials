@@ -2,6 +2,10 @@
 
 Essential scripts for a good RP server.
 
+I was searching for a script like this when I first started out with FiveM RP Dev, so I didn't have to go through the hassle of setting up 10 individual scripts (bad practice too) which could all be merged in to one. That's why I'm releasing this.
+
+Good luck with your RP server!
+
 I kindly ask you to report any bug/suggestion down below.
 
 ## Features
