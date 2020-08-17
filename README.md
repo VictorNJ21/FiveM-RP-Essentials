@@ -7,6 +7,7 @@ I kindly ask you to report any bug/suggestion down below.
 ## Features
 - Handsup
 - Finger point
+- Crouch
 - Disable vehicle air control
 - Disable vehicle on roof roll over
 - Disable crosshair
