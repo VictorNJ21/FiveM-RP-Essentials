@@ -15,6 +15,14 @@ Citizen.CreateThread(function()
 	end
 end)
 
+-- Disable Vehicle Rewards (weapons from emergancy vehicles)
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(1)
+		DisablePlayerVehicleRewards(PlayerId())	
+	end
+end)
+
 -- Hide Crosshair
 Citizen.CreateThread(function()
 	while true do
